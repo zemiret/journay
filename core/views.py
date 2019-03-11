@@ -1,3 +1,13 @@
-from django.shortcuts import render
+from rest_framework import viewsets, views
 
-# Create your views here.
+from core.models import Journey
+from core.serializers import JourneySerializer
+
+
+class JourneyViewSet(viewsets.ModelViewSet):
+    queryset = Journey.objects.all()
+    serializer_class = JourneySerializer
+
+
+class DayEntryView(views.APIView):
+    pass
